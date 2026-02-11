@@ -1,0 +1,61 @@
+<div class="container py-4">
+  <div class="text-center mb-5">
+    <h1 class="display-5 fw-bold text-dark">Find Your Next Favorite Meal</h1>
+    <p class="text-muted">Search by letter, category, or origin</p>
+  </div>
+
+  <div class="row g-3 mb-5 p-4 bg-white rounded shadow-sm border">
+    <div class="col-md-4">
+      <label class="form-label fw-bold small">Search by First Letter</label>
+      <div class="input-group">
+        <input class="form-control" placeholder="A-Z" [(ngModel)]="firstLetter" maxlength="1" />
+        <button class="btn btn-warning" (click)="searchByFirstLetter()">🔍</button>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <label class="form-label fw-bold small">Filter by Category</label>
+      <div class="input-group">
+        <select class="form-select" [(ngModel)]="selectedCategory">
+          <option value="">Select Category</option>
+          <option *ngFor="let c of categories" [value]="c.strCategory">{{ c.strCategory }}</option>
+        </select>
+        <button class="btn btn-dark" (click)="searchByCategory()">Filter</button>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <label class="form-label fw-bold small">Filter by Cuisine (Area)</label>
+      <div class="input-group">
+        <select class="form-select" [(ngModel)]="selectedArea">
+          <option value="">Select Area</option>
+          <option *ngFor="let a of areas" [value]="a.strArea">{{ a.strArea }}</option>
+        </select>
+        <button class="btn btn-dark" (click)="searchByArea()">Filter</button>
+      </div>
+    </div>
+  </div>
+
+  <hr class="mb-5 opacity-10" />
+
+  <div *ngIf="noResultFound" class="alert alert-light text-center border-0 shadow-sm py-5">
+     <h4 class="text-muted">Oops! No meals found. Try another search.</h4>
+  </div>
+
+  <div class="row">
+    <div class="col-sm-6 col-md-4 col-lg-3 mb-4" *ngFor="let meal of meals">
+      <div class="card h-100 border-0 shadow-sm meal-card">
+        <div class="position-relative">
+            <img [src]="meal.strMealThumb" class="card-img-top rounded-top" [alt]="meal.strMeal">
+            <div class="overlay"></div>
+        </div>
+        <div class="card-body text-center d-flex flex-column">
+          <h6 class="card-title fw-bold mb-3">{{ meal.strMeal }}</h6>
+          <a [routerLink]="['/meal', meal.idMeal]" class="btn btn-outline-warning btn-sm mt-auto w-100 stretched-link">
+            View Recipe
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

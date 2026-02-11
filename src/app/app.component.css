@@ -1,0 +1,30 @@
+/* Custom Meal Transitions */
+.meal-card {
+    transition: all 0.3s ease-in-out;
+}
+
+.meal-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1) !important;
+}
+
+.meal-card img {
+    height: 200px;
+    object-fit: cover;
+}
+
+.btn-warning {
+    background-color: #ffc107;
+    border: none;
+    font-weight: 600;
+}
+
+.btn-warning:hover {
+    background-color: #e0a800;
+}
+
+/* Background gradient for the whole app */
+body {
+    background: linear-gradient(135deg, #fdfbfb 0%, #ebedee 100%);
+    min-height: 100vh;
+}

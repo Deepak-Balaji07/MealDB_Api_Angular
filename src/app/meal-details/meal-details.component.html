@@ -1,0 +1,32 @@
+<div class="container py-5">
+  <div class="row justify-content-center">
+    <div class="col-lg-10">
+      <div class="card border-0 shadow-lg overflow-hidden rounded-4">
+        <div class="row g-0">
+          <div class="col-md-5">
+            <img [src]="meal?.strMealThumb" class="img-fluid h-100 object-fit-cover" [alt]="meal?.strMeal" />
+          </div>
+          <div class="col-md-7">
+            <div class="card-body p-4 p-lg-5">
+              <span class="badge bg-warning text-dark mb-2 px-3 py-2 rounded-pill">{{ meal?.strCategory }}</span>
+              <span class="badge bg-light text-dark mb-2 ms-2 px-3 py-2 rounded-pill border">{{ meal?.strArea }}</span>
+              
+              <h1 class="display-6 fw-bold mb-4">{{ meal?.strMeal }}</h1>
+              
+              <h5 class="fw-bold mb-3"><i class="bi bi-list-check"></i> Instructions</h5>
+              <p class="text-muted" style="line-height: 1.8; white-space: pre-wrap;">
+                {{ meal?.strInstructions }}
+              </p>
+
+              <div class="mt-5">
+                <button class="btn btn-outline-dark px-4 py-2" (click)="goBack()">
+                  ← Back to Meals
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
